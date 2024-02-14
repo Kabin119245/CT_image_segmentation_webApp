@@ -1,0 +1,57 @@
+body{
+    background-color: #9fd3c7;
+}
+
+h1{
+    text-align: center;
+    color:#272343;
+}
+h2{
+    text-align: center;
+   
+}
+.bn{
+    padding-left: 40%;
+    padding-top: 20px;
+}
+form {
+    text-align: center;
+    width: 300px; /* Adjust the width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 100%;
+    margin: auto;
+    
+}
+
+.main{
+    padding-top: 10px;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+button{
+    padding-left: 45%;
+}
+
+.segmentation-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  /* Adjust as needed */
+}
+
+.segmentation-col {
+    flex: 0 0 calc(20% - 10px);  /* Adjust as needed */
+    margin-bottom: 10px;  /* Adjust as needed */
+}
+
+.segmentation-output {
+    width: 100%;
+    height: auto;
+}
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}?v={{ site_update_time }}">
+
+</head>
+<body>
+   
+    <h1>MULTIORGAN SEGMENTATOR</h1>
+    <div class="main">
+    <h2>Upload your file here</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".nii.gz">
+        <input type="submit" value="Upload and Process">
+    </form>
+   
+    {% if segmentation_output_list1 %}
+    <h2>SegResNet Model Output</h2>
+    <div class="segmentation-row">
+        {% for img_SegResNet in segmentation_output_list1 %}
+            <div class="segmentation-col">
+                <img class="segmentation-output" src="data:image/png;base64,{{ img_SegResNet }}" alt="Segmentation Output">
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if segmentation_output_list2 %}
+    <h2>UNet Model Output</h2>
+    <div class="segmentation-row">
+        {% for  img_Unet in segmentation_output_list2 %}
+            <div class="segmentation-col">
+                <img class="segmentation-output" src="data:image/png;base64,{{  img_Unet }}" alt="Segmentation Output">
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
+
+
