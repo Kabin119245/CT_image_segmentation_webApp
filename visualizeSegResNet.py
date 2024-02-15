@@ -1,5 +1,6 @@
 import torch
 import os
+import matplotlib.patches as mpatches
 from monai.networks.nets import SegResNet
 from monai.networks.layers import Norm
 from transform import test_transforms
@@ -49,7 +50,11 @@ def SegResNet_output(volume, model, roi_size=(128, 128, 64), device=torch.device
         for slice_idx in range(test_outputs.shape[-1]):
             # Create a new figure and axis for each visualization
             fig, ax = plt.subplots(figsize=(6, 6))
-
+            brown_patch = mpatches.Patch(color='brown', label='Pancrease')
+            green_patch = mpatches.Patch(color='green', label='Kidney')
+            blue_patch = mpatches.Patch(color='blue', label='Liver')
+            orange_patch = mpatches.Patch(color='orange', label='Spleen')
+            ax.legend(handles=[brown_patch,green_patch,blue_patch,orange_patch]) 
             # Plot predicted segmentation with original colors
             overlay = torch.argmax(test_outputs, dim=1)[0, :, :, slice_idx].cpu().numpy()
             overlay = np.ma.masked_where(overlay == 0, overlay)  # Mask background (class 0)
